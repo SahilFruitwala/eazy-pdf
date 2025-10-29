@@ -9,7 +9,6 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Download, ImageIcon, Loader2 } from "lucide-react"
-import { renderPDFPagesToImages } from "@/lib/pdf-renderer"
 import { downloadBlob } from "@/lib/pdf-utils"
 import JSZip from "jszip"
 
@@ -31,8 +30,14 @@ export default function PDFToImagePage() {
     setIsProcessing(true)
 
     try {
+      const { renderPDFPagesToImages } = await import("@/lib/pdf-renderer")
       console.log("[v0] Starting PDF to image conversion with format:", format, "quality:", quality)
-      const convertedImages = await renderPDFPagesToImages(file, format, quality, 2.5)
+      const convertedImages = await renderPDFPagesToImages(
+        file,
+        format,
+        quality,
+        2.5
+      )
 
       setImages(convertedImages)
       console.log("[v0] Converted", convertedImages.length, "pages to images")
