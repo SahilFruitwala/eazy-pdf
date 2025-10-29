@@ -1,7 +1,7 @@
 import Link from "next/link"
-import { FileDown, Scissors, Merge, FileStack, Shield, Zap, Lock, ImageIcon, FileImage } from "lucide-react"
+import { FileDown, Scissors, Merge, FileStack, ImageIcon, FileImage } from "lucide-react"
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import { ModeToggle } from "@/components/theme-toggle"
 
 export default function HomePage() {
   const tools = [
@@ -49,72 +49,23 @@ export default function HomePage() {
     },
   ]
 
-  const features = [
-    {
-      icon: Lock,
-      title: "100% Private",
-      description: "All processing happens in your browser. Your files never leave your device.",
-    },
-    {
-      icon: Zap,
-      title: "Lightning Fast",
-      description: "Optimized for performance to handle large PDFs efficiently.",
-    },
-    {
-      icon: Shield,
-      title: "Secure & Safe",
-      description: "No uploads, no servers, no data collection. Complete privacy guaranteed.",
-    },
-  ]
-
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b border-border bg-card">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <FileStack className="w-5 h-5 text-primary-foreground" />
-            </div>
-            <span className="text-xl font-semibold text-foreground">PDF Tools</span>
-          </div>
-          <nav className="hidden md:flex items-center gap-6">
-            <Link href="#tools" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Tools
-            </Link>
-            <Link href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Features
-            </Link>
-          </nav>
-        </div>
-      </header>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-16 md:py-24">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="container mx-auto px-4 pt-8 md:pt-8">
+        <div className="max-w-3xl flex mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 text-balance">
             Professional PDF Tools for Everyone
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground mb-8 text-pretty leading-relaxed">
-            Compress, split, merge, extract pages, convert PDF to image, and convert image to PDF entirely in your
-            browser. Fast, secure, and completely private. No uploads required.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button asChild size="lg" className="w-full sm:w-auto">
-              <Link href="#tools">Get Started</Link>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="w-full sm:w-auto bg-transparent">
-              <Link href="#features">Learn More</Link>
-            </Button>
-          </div>
+          <ModeToggle />
         </div>
       </section>
 
       {/* Tools Grid */}
-      <section id="tools" className="container mx-auto px-4 py-16">
+      <section id="tools" className="container mx-auto px-4 pb-16">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Choose Your Tool</h2>
-          <p className="text-muted-foreground text-lg">Select the PDF operation you need to perform</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -140,7 +91,7 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="bg-muted/30 py-16">
+      {/* <section id="features" className="bg-muted/30 py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Why Choose Our PDF Tools?</h2>
@@ -162,10 +113,10 @@ export default function HomePage() {
             })}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Footer */}
-      <footer className="border-t border-border bg-card py-8">
+      <footer className="border-t border-border bg-card py-6">
         <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
           <p>© 2025 PDF Tools. All processing happens locally in your browser.</p>
         </div>
