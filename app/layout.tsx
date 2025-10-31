@@ -9,7 +9,6 @@ export const metadata: Metadata = {
   title: "PDF Tools - Compress, Split, Merge & Extract PDFs",
   description:
     "Free online PDF tools. Compress, split, merge, and extract pages from PDFs entirely in your browser. Fast, secure, and private.",
-  generator: "v0.app",
 }
 
 export default function RootLayout({
